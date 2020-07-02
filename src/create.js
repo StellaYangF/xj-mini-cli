@@ -38,7 +38,7 @@ const download = async (repo, tag) => {
   if (tag) {
     api += `#${tag}`;
   }
-  const dest = `${downloadGitRepo}/${repo}`;
+  const dest = `${downloadDirectory}/${repo}`;
   await downloadGitRepo(api, dest);
   return dest;
 };
@@ -63,6 +63,7 @@ module.exports = async (projectName) => {
   });
 
   const result = await waitFnLoading(download, 'downloading template')(repo, tag);
+  console.log(result);
 
   if (!fs.existsSync(path.join(result, 'ask.js'))) {
     await ncp(result, path.resolve(projectName));
@@ -97,7 +98,7 @@ module.exports = async (projectName) => {
             console.log(err);
             reject();
           } else {
-            result();
+            resolve();
           }
         });
     });
