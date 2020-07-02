@@ -9,7 +9,7 @@ let { render } = require('ejs');
 let MetalSmith = require('metalsmith');
 let { downloadDirectory } = require('./constants');
 let ncp = require('ncp');
-const cons = require('consolidate');
+const consolidate = require('consolidate');
 
 downloadGitRepo = promisify(downloadGitRepo);
 render = promisify(render);
@@ -63,7 +63,6 @@ module.exports = async (projectName) => {
   });
 
   const result = await waitFnLoading(download, 'downloading template')(repo, tag);
-  console.log(result);
 
   if (!fs.existsSync(path.join(result, 'ask.js'))) {
     await ncp(result, path.resolve(projectName));
