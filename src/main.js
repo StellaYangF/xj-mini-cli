@@ -13,7 +13,7 @@ Object.entries(mapActions).forEach(([actionName, { alias, description }]) => {
       if (actionName === '*') {
         console.log(description);
       } else {
-        require(path.resolve(__dirname, actionName))(...process.argv.slice(3))
+        require(path.resolve(__dirname, actionName))(...process.argv.slice(3));
       }
     });
 });

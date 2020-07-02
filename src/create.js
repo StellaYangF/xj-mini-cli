@@ -17,7 +17,6 @@ ncp = promisify(ncp);
 
 const fetchRepoList = async () => {
   const { data } = await axios('https://api.github.com/orgs/xj-cli/repos');
-  console.log(data);
   return data;
 };
 
@@ -45,9 +44,8 @@ const download = async (repo, tag) => {
 };
 
 module.exports = async (projectName) => {
-  let repos = waitFnLoading(fetchRepoList, 'fetching template...')();
+  let repos = await waitFnLoading(fetchRepoList, 'fetching template...')();
   repos = repos.map((item) => item.name);
-  console.log(repos);
   const { repo } = await inquirer.prompt({
     name: 'repo',
     type: 'list',
@@ -55,7 +53,7 @@ module.exports = async (projectName) => {
     choices: repos,
   });
 
-  let tags = waitFnLoading(fetchTagList, 'fetching tags...')(repo);
+  let tags = await waitFnLoading(fetchTagList, 'fetching tags...')(repo);
   tags = tags.map((item) => item.name);
   const { tag } = await inquirer.prompt({
     name: 'tag',
@@ -101,7 +99,7 @@ module.exports = async (projectName) => {
           } else {
             result();
           }
-        })
-    })
+        });
+    });
   }
 };
