@@ -1,0 +1,26 @@
+{
+  "name": "zf-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "compile": "babel src -d dist",
+    "watch": "npm run compile -- -watch"
+  },
+  "bin": {
+    "stella-cli": "./bin/www"
+  },
+  "keywords": [
+    "CLI",
+    "Node"
+  ],
+  "author": "Stella",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-env": "^2.4.1"
+  },
+  "dependencies": {
+    "commander": "^5.1.0"
+  }
+}
