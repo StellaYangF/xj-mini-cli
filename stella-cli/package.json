@@ -1,7 +1,7 @@
 {
-  "name": "zf-cli",
+  "name": "@stella2/stella-cli",
   "version": "1.0.0",
-  "description": "",
+  "description": "Command Line Interface for personal instant project creation",
   "main": "main.js",
   "scripts": {
     "compile": "babel src -d dist",
@@ -27,5 +27,12 @@
     "inquirer": "^7.3.0",
     "ora": "^4.0.4",
     "request": "^2.88.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StellaYangF/xj-mini-cli/tree/master/stella-cli"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
