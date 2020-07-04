@@ -11,10 +11,11 @@ Object.entries(actionMap)
       .alias(alias)
       .action(() => {
         if (actionName === 'config' || actionName === 'install') {
-          console.log(actionName, 'actionName');
           main(actionName, process.argv.slice(3));
         // eslint-disable-next-line no-empty
-        } else if (actionName === 'install') {}
+        } else {
+          console.log(actionName, 'actionName')
+        }
         // main();
       });
   });

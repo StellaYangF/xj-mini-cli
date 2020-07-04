@@ -19,10 +19,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 Object.entries(_actionMap2.default).forEach(([actionName, { alias, description }]) => {
   _commander2.default.command(actionName).description(description).alias(alias).action(() => {
     if (actionName === 'config' || actionName === 'install') {
-      console.log(actionName, 'actionName');
       (0, _index2.default)(actionName, process.argv.slice(3));
       // eslint-disable-next-line no-empty
-    } else if (actionName === 'install') {}
+    } else {
+      console.log(actionName, 'actionName');
+    }
     // main();
   });
 });

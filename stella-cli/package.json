@@ -21,6 +21,11 @@
     "babel-env": "^2.4.1"
   },
   "dependencies": {
-    "commander": "^5.1.0"
+    "commander": "^5.1.0",
+    "download-git-repo": "^3.0.2",
+    "ini": "^1.3.5",
+    "inquirer": "^7.3.0",
+    "ora": "^4.0.4",
+    "request": "^2.88.2"
   }
 }
